@@ -10,9 +10,9 @@ Set-ItemProperty -Path .\x.json -Name attributes -Value 6;
 Set-ItemProperty -Path .\x.json -Name attributes -Value 0;
 # Remove-Item x.json
 
-$path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU";
-$arr = Get-ItemPropertyValue $path -Name MRUList;
-Set-ItemProperty -Path $path -Name MRUList -Value "";
-foreach ($x in $arr.ToCharArray()) {
-    Remove-ItemProperty -Path $path -Name $x;
-}
+#$path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU";
+#$arr = Get-ItemPropertyValue $path -Name MRUList;
+#Set-ItemProperty -Path $path -Name MRUList -Value "";
+#foreach ($x in $arr.ToCharArray()) {
+#    Remove-ItemProperty -Path $path -Name $x;
+#}
